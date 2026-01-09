@@ -1,28 +1,38 @@
-using System.Runtime.CompilerServices;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Zoom : MonoBehaviour
 {
-    public float zoomSpeed = 5f;
-    public float minZoomSize = 2f;
-    public float maxZoomSize = 10f;
+    public float zoomStep = 1f;
+    public float minOrthoSize = 2f;
+    public float maxOrthoSize = 10f;
 
     private Camera cam;
-    void Start()
+
+    void Awake()
     {
         cam = GetComponent<Camera>();
+        cam.orthographic = true;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        float scrollInput = Input.GetAxis("Mouse ScrollWheel");
-        if (Mathf.Abs(scrollInput) > 0f)
+        if (Mouse.current == null) return;
+
+        
+        if (Mouse.current.rightButton.wasPressedThisFrame)
         {
-            float newSize = cam.orthographicSize - scrollInput * zoomSpeed * Time.deltaTime * 50;
+            float before = cam.orthographicSize;
 
-            cam.orthographicSize = Mathf.Clamp(newSize, minZoomSize, maxZoomSize);
+            if (Keyboard.current.leftShiftKey.isPressed)
+                cam.orthographicSize += zoomStep; // zoom out
+            else
+                cam.orthographicSize -= zoomStep; // zoom in
+
+            cam.orthographicSize =
+                Mathf.Clamp(cam.orthographicSize, minOrthoSize, maxOrthoSize);
+
+            Debug.Log($"Zoom click: {before} → {cam.orthographicSize}");
         }
-
     }
 }
