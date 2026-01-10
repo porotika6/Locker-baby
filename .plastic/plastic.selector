@@ -1,0 +1,4 @@
+repository "GLHF Bootcamp 2025/Locker Baby 2d@18968349663896@cloud"
+  path "/"
+    br "/main"
+    co "/main"
