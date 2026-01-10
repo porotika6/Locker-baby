@@ -3,16 +3,19 @@ using UnityEngine.InputSystem;
 
 public class ItemInteract : MonoBehaviour
 {
-   
-   private Camera cam;
+    private Camera cam;
     private SpriteRenderer sr;
 
-    public Transform cameraTarget; // titik tujuan kamera
+    public Transform cameraTarget;
 
     public Color normalColor = Color.white;
     public Color highlightColor = Color.yellow;
 
     private bool isHovered;
+
+    
+    private float lastClickTime;
+    public float doubleClickTime = 0.25f; // 250 ms
 
     void Start()
     {
@@ -24,9 +27,10 @@ public class ItemInteract : MonoBehaviour
     void Update()
     {
         DetectHover();
-        DetectClick();
+        DetectDoubleClick();
     }
 
+    // ================= HOVER =================
     void DetectHover()
     {
         Vector2 mouseScreenPos = Mouse.current.position.ReadValue();
@@ -52,14 +56,29 @@ public class ItemInteract : MonoBehaviour
         }
     }
 
-    void DetectClick()
+    // ================= DOUBLE CLICK =================
+    void DetectDoubleClick()
     {
-        if (isHovered && Mouse.current.leftButton.wasPressedThisFrame)
+        if (!isHovered) return;
+
+        if (Mouse.current.leftButton.wasPressedThisFrame)
         {
-            TeleportCamera();
+            float timeSinceLastClick = Time.time - lastClickTime;
+
+            if (timeSinceLastClick <= doubleClickTime)
+            {
+                Debug.Log("Double Click detected on " + gameObject.name);
+                TeleportCamera();
+                lastClickTime = 0f; // reset (anti triple click)
+            }
+            else
+            {
+                lastClickTime = Time.time;
+            }
         }
     }
 
+   
     void TeleportCamera()
     {
         if (cameraTarget == null) return;
@@ -67,7 +86,7 @@ public class ItemInteract : MonoBehaviour
         cam.transform.position = new Vector3(
             cameraTarget.position.x,
             cameraTarget.position.y,
-            cam.transform.position.z // Z kamera tetap
+            cam.transform.position.z
         );
 
         Debug.Log("Camera TP ke: " + cameraTarget.position);
