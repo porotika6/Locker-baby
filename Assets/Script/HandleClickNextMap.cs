@@ -4,7 +4,9 @@ public class HandleClickNextMap : MonoBehaviour
 {
     public GameObject currentMap;
     public GameObject nextMap;
-    public AudioSource clickSound;
+
+    public AudioSource audioSource;   // AudioSource
+    public AudioClip transitionSound; // MP3 / WAV
 
     private bool clicked = false;
 
@@ -13,13 +15,13 @@ public class HandleClickNextMap : MonoBehaviour
         if (clicked) return;
         clicked = true;
 
-        if (clickSound != null)
+        if (audioSource != null && transitionSound != null)
         {
-            clickSound.Play();
+            audioSource.PlayOneShot(transitionSound);
         }
 
-        // kasih delay dikit biar suara kedengeran
-        Invoke(nameof(SwitchMap), 0.1f);
+        // delay biar suara kedengeran dulu
+        Invoke(nameof(SwitchMap), 0.2f);
     }
 
     void SwitchMap()
