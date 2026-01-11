@@ -14,16 +14,8 @@ public class HandleClickNextMap : MonoBehaviour
         clicked = true;
 
         if (clickSound != null)
-        {
             clickSound.Play();
-        }
 
-        // kasih delay dikit biar suara kedengeran
-        Invoke(nameof(SwitchMap), 0.1f);
-    }
-
-    void SwitchMap()
-    {
         currentMap.SetActive(false);
         nextMap.SetActive(true);
     }
