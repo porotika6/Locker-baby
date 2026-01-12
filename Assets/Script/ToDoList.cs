@@ -1,30 +1,22 @@
 using UnityEngine;
 using TMPro;
-using UnityEditor.Rendering;
 
 public class TodoItemUI : MonoBehaviour
 {
-    public TextMeshProUGUI text;
-    public Color doneColor = Color.gray;
-   
-    bool done;
+    public TextMeshProUGUI taskText;
+    public Color completedColor = Color.gray;
+    
+    [HideInInspector] public bool isCompleted = false;
 
-     public void OnDiaryOpened()
+    public void MarkAsDone()
     {
-        gameObject.SetActive(false); 
-    }
+        if (isCompleted) return;
+        
+        isCompleted = true;
+        taskText.fontStyle = FontStyles.Strikethrough;
+        taskText.color = completedColor;
 
-  
-    public void OnDiaryClosed()
-    {
-        gameObject.SetActive(true); 
-    }
-    public void MarkDone()
-    {
-        if (done) return;
-        done = true;
-
-        text.fontStyle = FontStyles.Strikethrough;
-        text.color = doneColor;
+        // Beritahu manager untuk cek status global
+        TodoManager.Instance.CheckGlobalProgress();
     }
 }

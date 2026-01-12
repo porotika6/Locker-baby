@@ -16,6 +16,8 @@ public class ItemInteract : MonoBehaviour
 
     private float lastClickTime;
     public float doubleClickTime = 0.25f;
+    public Sprite HoverSprite;
+    private Sprite DefaultSprite;
 
     // 🔥 EVENT (INI KUNCI)
     public UnityEvent OnDoubleClick;
@@ -24,7 +26,7 @@ public class ItemInteract : MonoBehaviour
     {
         cam = Camera.main;
         sr = GetComponent<SpriteRenderer>();
-        sr.color = normalColor;
+        DefaultSprite = sr.sprite;
     }
 
     void Update()
@@ -43,13 +45,14 @@ public class ItemInteract : MonoBehaviour
             if (!isHovered)
             {
                 isHovered = true;
-                sr.color = highlightColor;
+                sr.sprite = HoverSprite;
             }
+        
         }
         else if (isHovered)
         {
             isHovered = false;
-            sr.color = normalColor;
+            sr.sprite = DefaultSprite;
         }
     }
 
@@ -75,7 +78,7 @@ public class ItemInteract : MonoBehaviour
         }
     }
 
-    void TeleportCamera()
+    public void TeleportCamera()
     {
         if (cameraTarget == null) return;
 
@@ -85,4 +88,5 @@ public class ItemInteract : MonoBehaviour
             cam.transform.position.z
         );
     }
+     
 }
