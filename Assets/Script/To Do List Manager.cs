@@ -49,13 +49,13 @@ void ResetTodoList()
         if (task == null) continue;
 
         task.isCompleted = false;
-        task.UpdateUI(); // pastikan checkbox / text reset
+        // task.UpdateUI(); // pastikan checkbox / text reset
     }
 }
 
 public void UpdateUI()
 {
-    checkmark.SetActive(isCompleted);
+    // checkmark.SetActive(isCompleted);
 }
     
     void Update()
