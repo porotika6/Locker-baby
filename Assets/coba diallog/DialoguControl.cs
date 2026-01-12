@@ -5,27 +5,39 @@ using UnityEngine.InputSystem;
 
 public class ItemDialogueController : MonoBehaviour
 {
+    [Header("Dialogue")]
     public TextMeshProUGUI dialogueText;
     public string[] sentences;
     public float dialogueSpeed = 0.05f;
 
+    [Header("Transition")]
+    public Animator fadeAnimator;
+    public float fadeDuration = 1f;
+
+    [Header("Movement")]
+    public Transform cameraTarget;   // Camera Holder / Player
+    public Transform targetPosition; // Posisi tujuan
+
+    [Header("Input")]
+    public float doubleClickTime = 0.25f;
+
     int index;
     Coroutine typing;
     bool active;
+    bool isTransitioning;
 
     Camera cam;
-
     float lastClickTime;
-    public float doubleClickTime = 0.25f;
 
+    // ================= UNITY =================
     void Start()
     {
         cam = Camera.main;
-
         if (cam == null)
             Debug.LogError("Camera.main tidak ditemukan! Pastikan tag MainCamera");
 
         active = false;
+        isTransitioning = false;
 
         // Sembunyikan UI di awal
         dialogueText.text = "";
@@ -38,7 +50,7 @@ public class ItemDialogueController : MonoBehaviour
         DetectDoubleClick();
     }
 
-    // ================= DOUBLE CLICK =================
+    // ================= INPUT =================
     void DetectDoubleClick()
     {
         if (Mouse.current == null) return;
@@ -67,18 +79,54 @@ public class ItemDialogueController : MonoBehaviour
         if (hit.collider == null) return;
         if (hit.collider.gameObject != gameObject) return;
 
-        if (!active)
-            StartDialogue();
-        else
-            NextSentence();
+        TriggerInteraction(); // public event
     }
 
-    // ================= DIALOG =================
+    // ================= PUBLIC EVENT =================
+    public void TriggerInteraction()
+    {
+        if (active || isTransitioning) return;
+        StartCoroutine(TransitionThenDialogue());
+    }
+
+    // ================= TRANSITION =================
+    IEnumerator TransitionThenDialogue()
+    {
+        isTransitioning = true;
+        active = true;
+
+        // Fade Out
+        if (fadeAnimator != null)
+            fadeAnimator.Play("FadeOut", -1, 0f);
+
+        yield return new WaitForSeconds(fadeDuration);
+
+        // Pindah posisi
+        if (cameraTarget != null && targetPosition != null)
+        {
+            cameraTarget.position = new Vector3(
+                targetPosition.position.x,
+                targetPosition.position.y,
+                cameraTarget.position.z
+            );
+        }
+
+        // Fade In
+        if (fadeAnimator != null)
+            fadeAnimator.Play("FadeIn", -1, 0f);
+
+        yield return new WaitForSeconds(fadeDuration);
+
+        StartDialogue();
+        isTransitioning = false;
+    }
+
+    // ================= DIALOGUE =================
     void StartDialogue()
     {
-        active = true;
         index = 0;
 
+        dialogueText.text = "";
         dialogueText.gameObject.SetActive(true);
         dialogueText.transform.parent.gameObject.SetActive(true);
 
@@ -112,31 +160,20 @@ public class ItemDialogueController : MonoBehaviour
     IEnumerator TypeSentence()
     {
         foreach (char c in sentences[index])
-    {
-        dialogueText.text += c;
-        yield return new WaitForSeconds(dialogueSpeed);
-    }
+        {
+            dialogueText.text += c;
+            yield return new WaitForSeconds(dialogueSpeed);
+        }
 
-    typing = null;
-
-    // ⬇️ JIKA INI KALIMAT TERAKHIR → AUTO END
-    if (index == sentences.Length - 1)
-    {
-        yield return new WaitForSeconds(0.5f); // jeda dikit biar kebaca
-        EndDialogue();
-    }
+        typing = null;
     }
 
     void EndDialogue()
     {
         active = false;
 
-        // SEMBUNYIKAN UI SAJA
         dialogueText.text = "";
         dialogueText.gameObject.SetActive(false);
         dialogueText.transform.parent.gameObject.SetActive(false);
-
-        // ❌ ITEM TIDAK DIMATIKAN
-        // gameObject.SetActive(false);  <-- SUDAH DIHAPUS
     }
 }

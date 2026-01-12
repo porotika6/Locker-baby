@@ -204,7 +204,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 776797663}
         m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
-        m_MethodName: PlayGame
+        m_MethodName: StartGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -642,7 +642,6 @@ MonoBehaviour:
   fadePanel: {fileID: 1824881986}
   fadeAnimator: {fileID: 1824881987}
   fadeDuration: 1
-  monologuePanel: {fileID: 1441522129}
 --- !u!1 &914960946
 GameObject:
   m_ObjectHideFlags: 0
@@ -899,11 +898,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1441522129 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2436578237024636985, guid: e03e7538205d2f74abe77f1c0bf852ae, type: 3}
-  m_PrefabInstance: {fileID: 626833135413487817}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &1441522130 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2471257246608165503, guid: e03e7538205d2f74abe77f1c0bf852ae, type: 3}

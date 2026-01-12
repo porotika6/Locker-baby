@@ -8,24 +8,19 @@ public class MainMenu : MonoBehaviour
     public Animator fadeAnimator;   // Drag Animator dari Panel Hitam
     public float fadeDuration = 1.0f;
 
-    public GameObject monologuePanel; // Tarik MonologuePanel ke sini
+   
 
-public void PlayGame()
+public void StartGame()
 {
-    StartCoroutine(StartGameSequence());
+    SceneManager.LoadSceneAsync(1);
+    StartCoroutine(LoadLevelDirectly());
 }
 
-IEnumerator StartGameSequence()
+IEnumerator LoadLevelDirectly()
 {
-    // 1. Jalankan Fade Out (Layar jadi hitam)
-    fadePanel.SetActive(true);
-    fadeAnimator.Play("FadeOut");
+    fadeAnimator.Play("FadeOut"); // Layar jadi hitam
     yield return new WaitForSeconds(fadeDuration);
-
-    // 2. Matikan FadePanel, Nyalakan Panel Monolog
-    fadePanel.SetActive(false);
-    monologuePanel.SetActive(true); 
-    // Monolog otomatis jalan karena ada StartDialogue di Start()
+    SceneManager.LoadScene("Trial Area 1"); // Langsung pindah
 }
 
     public void QuitGame()

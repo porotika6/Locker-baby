@@ -1745,13 +1745,13 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 8754699779843776417, guid: 0135d6be981bcb24fb69bf202033d79c, type: 3}
+    - targetCorrespondingSourceObject: {fileID: 4899436389807266513, guid: 0135d6be981bcb24fb69bf202033d79c, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 58890444045893338, guid: 0135d6be981bcb24fb69bf202033d79c, type: 3}
+    - targetCorrespondingSourceObject: {fileID: 8692159626229233453, guid: 0135d6be981bcb24fb69bf202033d79c, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 8936671880186803316, guid: 0135d6be981bcb24fb69bf202033d79c, type: 3}
+    - targetCorrespondingSourceObject: {fileID: 4143042691169815512, guid: 0135d6be981bcb24fb69bf202033d79c, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 0135d6be981bcb24fb69bf202033d79c, type: 3}
@@ -1967,7 +1967,7 @@ PrefabInstance:
       objectReference: {fileID: 1698711950}
     - target: {fileID: 4907120741964472285, guid: 38021e9af018dc049b3373f4e31fb0a9, type: 3}
       propertyPath: sentences.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4907120741964472285, guid: 38021e9af018dc049b3373f4e31fb0a9, type: 3}
       propertyPath: 'sentences.Array.data[0]'
@@ -1981,6 +1981,11 @@ PrefabInstance:
       propertyPath: 'sentences.Array.data[2]'
       value: Doing these chores over and over again is the only thing that keep me
         sane.
+      objectReference: {fileID: 0}
+    - target: {fileID: 4907120741964472285, guid: 38021e9af018dc049b3373f4e31fb0a9, type: 3}
+      propertyPath: 'sentences.Array.data[3]'
+      value: "That baby is mine, even if I still haven\u2019t felt affection for
+        him, that baby is mine. "
       objectReference: {fileID: 0}
     - target: {fileID: 5259051104715111314, guid: 38021e9af018dc049b3373f4e31fb0a9, type: 3}
       propertyPath: m_LocalPosition.x

@@ -3,11 +3,7 @@ using TMPro;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using System.Collections;
-
-// Tambahkan ini untuk Input System yang baru
-#if ENABLE_INPUT_SYSTEM
-using UnityEngine.InputSystem;
-#endif
+using UnityEngine.InputSystem; // Wajib untuk sistem input baru
 
 public class TodoManager : MonoBehaviour
 {
@@ -19,14 +15,14 @@ public class TodoManager : MonoBehaviour
 
     [Header("Transition Settings")]
     public string targetSceneName;
-    public GameObject fadePanel;
-    public Animator fadeAnimator;
-    public float fadeDuration = 1.0f; // Sesuaikan dengan durasi animasi kamu
+    public GameObject fadePanel;    
+    public Animator fadeAnimator;   
+    public float fadeDuration = 0.5f;
 
-    [Header("Monologue Settings")]
-    public GameObject monologuePanel; // Panel Hitam tempat teks
-    public TextMeshProUGUI monologueText; // Komponen teks monolog
-    public string[] sentences; // Isi monolog untuk scene ini
+    [Header("Monologue Settings (System Baru)")]
+    public GameObject monologuePanel; 
+    public TextMeshProUGUI monologueText; 
+    public string[] sentences; 
     public float typingSpeed = 0.05f;
     private int dialogueIndex = 0;
     private bool isTyping = false;
@@ -36,57 +32,28 @@ public class TodoManager : MonoBehaviour
     public List<TodoItemUI> allTasks = new List<TodoItemUI>();
 
     void Awake() { Instance = this; }
+
     void Start()
-{
-    ResetTodoList();
-    StartCoroutine(JustFadeIn());
-}
-
-void ResetTodoList()
-{
-    foreach (var task in allTasks)
     {
-        if (task == null) continue;
-
-        task.isCompleted = false;
-        task.UpdateUI(); // pastikan checkbox / text reset
+        // Memulai urutan scene: Cek monolog dulu
+        if (sentences != null && sentences.Length > 0)
+        {
+            StartCoroutine(BeginSceneWithMonologue());
+        }
+        else
+        {
+            // Jika tidak ada monolog, langsung Fade In
+            StartCoroutine(JustFadeIn());
+        }
     }
-}
 
-public void UpdateUI()
-{
-    checkmark.SetActive(isCompleted);
-}
-    
     void Update()
     {
-        
-        bool clickedThisFrame = false;
-
-    #if ENABLE_INPUT_SYSTEM && !ENABLE_LEGACY_INPUT_MANAGER
-  
-        if (Mouse.current != null && Mouse.current.leftButton.wasPressedThisFrame)
-        {
-            clickedThisFrame = true;
-        }
-        else if (Touchscreen.current != null && Touchscreen.current.primaryTouch.press.wasPressedThisFrame)
-        {
-            clickedThisFrame = true;
-        }
-    #else
-        // Fallback ke Input lama (untuk proyek yang masih pakai legacy)
-        if (Input.GetMouseButtonDown(0))
-        {
-            clickedThisFrame = true;
-        }
-    #endif
-
-        // Deteksi klik untuk lanjut monolog
-        if (monologueActive && clickedThisFrame)
+        // Deteksi Klik menggunakan Input System Baru
+        if (monologueActive && Mouse.current.leftButton.wasPressedThisFrame)
         {
             if (isTyping)
             {
-                // Jika sedang mengetik, klik akan langsung memunculkan semua teks
                 StopAllCoroutines();
                 monologueText.text = sentences[dialogueIndex];
                 isTyping = false;
@@ -98,37 +65,19 @@ public void UpdateUI()
         }
     }
 
-    // ================== LOGIKA MONOLOG ==================
-    
-    public void StartMonologue()
-{
-    if (sentences == null || sentences.Length == 0) return;
+    // ================== LOGIKA MONOLOG BARU ==================
 
-    StopAllCoroutines();
-    StartCoroutine(BeginSceneWithMonologue());
-}
     IEnumerator BeginSceneWithMonologue()
     {
         monologueActive = true;
-        if (monologuePanel != null) monologuePanel.SetActive(true);
-        if (fadePanel != null) fadePanel.SetActive(false); // Pastikan panel transisinya mati dulu
-
+        monologuePanel.SetActive(true);
+        if (fadePanel != null) fadePanel.SetActive(false); 
+        
         dialogueIndex = 0;
-        yield return StartCoroutine(TypeSentence());
+        StartCoroutine(TypeSentence());
+        yield return null;
     }
 
-    IEnumerator FadeOutAndLoadScene()
-{
-    if (fadePanel != null)
-        fadePanel.SetActive(true);
-
-    if (fadeAnimator != null)
-        fadeAnimator.Play("FadeOut", -1, 0f); // ⬅️ NAMA ANIMASI
-
-    yield return new WaitForSeconds(fadeDuration);
-
-    SceneManager.LoadScene(targetSceneName);
-}
     void NextSentence()
     {
         dialogueIndex++;
@@ -136,14 +85,13 @@ public void UpdateUI()
         {
             StartCoroutine(TypeSentence());
         }
-       else
-    {
-    monologueActive = false;
-    monologuePanel.SetActive(false);
-
-    // LANGSUNG FADE OUT & PINDAH SCENE
-    StartCoroutine(FadeOutAndLoadScene());
-    }
+        else
+        {
+            // Monolog Selesai -> Masuk ke Gameplay (Fade In)
+            monologueActive = false;
+            monologuePanel.SetActive(false);
+            StartCoroutine(JustFadeIn());
+        }
     }
 
     IEnumerator TypeSentence()
@@ -163,13 +111,13 @@ public void UpdateUI()
         if (fadePanel != null && fadeAnimator != null)
         {
             fadePanel.SetActive(true);
-            fadeAnimator.Play("FadeIn");
+            fadeAnimator.Play("FadeIn"); 
             yield return new WaitForSeconds(fadeDuration);
             fadePanel.SetActive(false);
         }
     }
 
-    // ================== LOGIKA TRANSISI SCENE & QUEST ==================
+    // ================== LOGIKA TRANSISI (JANGAN DIGANTI) ==================
 
     public IEnumerator TriggerFadeSequence(System.Action onMidFade)
     {
@@ -189,23 +137,17 @@ public void UpdateUI()
         }
     }
 
-    public void CheckGlobalProgress()
-   {
-    bool allDone = true;
-    foreach (var task in allTasks)
-    {
-        if (task == null || !task.isCompleted)
-        {
-            allDone = false;
-            break;
-        }
-    }
+    // ================== LOGIKA QUEST & END LEVEL ==================
 
-    if (allDone)
+    public void CheckGlobalProgress()
     {
-        StartMonologue(); // ⬅️ MONOLOG DI SINI
+        bool allDone = true;
+        foreach (var task in allTasks)
+        {
+            if (task == null || !task.isCompleted) { allDone = false; break; }
+        }
+        if (allDone) { StartCoroutine(EndLevelSequence()); }
     }
-}
 
     IEnumerator EndLevelSequence()
     {
@@ -214,15 +156,12 @@ public void UpdateUI()
             headerText.fontStyle = FontStyles.Strikethrough;
             headerText.color = headerDoneColor;
         }
-
         yield return new WaitForSeconds(1.0f);
-
         if (fadePanel != null && fadeAnimator != null)
         {
             fadePanel.SetActive(true);
-            fadeAnimator.Play("FadeOut", -1, 0f);
+            fadeAnimator.Play("FadeOut");
         }
-
         yield return new WaitForSeconds(fadeDuration);
         SceneManager.LoadScene(targetSceneName);
     }
