@@ -968,8 +968,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: QUIT
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 0cba7ab581475d5498b6184188e1a328, type: 2}
+  m_sharedMaterial: {fileID: 1349749586923880473, guid: 0cba7ab581475d5498b6184188e1a328, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1115,8 +1115,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: START
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 0cba7ab581475d5498b6184188e1a328, type: 2}
+  m_sharedMaterial: {fileID: 1349749586923880473, guid: 0cba7ab581475d5498b6184188e1a328, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1359,6 +1359,14 @@ PrefabInstance:
     - target: {fileID: 2471257246608165503, guid: e03e7538205d2f74abe77f1c0bf852ae, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4943960081891442887, guid: e03e7538205d2f74abe77f1c0bf852ae, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 0cba7ab581475d5498b6184188e1a328, type: 2}
+    - target: {fileID: 4943960081891442887, guid: e03e7538205d2f74abe77f1c0bf852ae, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

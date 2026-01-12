@@ -36,29 +36,35 @@ public class TodoManager : MonoBehaviour
     public List<TodoItemUI> allTasks = new List<TodoItemUI>();
 
     void Awake() { Instance = this; }
-
     void Start()
-    {
-        // 1. Saat scene dimulai, pastikan layar hitam (Monologue Panel aktif)
-        if (sentences != null && sentences.Length > 0)
-        {
-            StartCoroutine(BeginSceneWithMonologue());
-        }
-        else
-        {
-            // Jika tidak ada monolog, langsung Fade In seperti biasa
-            StartCoroutine(JustFadeIn());
-        }
-    }
+{
+    ResetTodoList();
+    StartCoroutine(JustFadeIn());
+}
 
+void ResetTodoList()
+{
+    foreach (var task in allTasks)
+    {
+        if (task == null) continue;
+
+        task.isCompleted = false;
+        task.UpdateUI(); // pastikan checkbox / text reset
+    }
+}
+
+public void UpdateUI()
+{
+    checkmark.SetActive(isCompleted);
+}
+    
     void Update()
     {
-        // DETEKSI KLIK: mendukung Input System baru (Mouse / Touch),
-        // namun juga fallback ke Input lama bila masih diaktifkan.
+        
         bool clickedThisFrame = false;
 
     #if ENABLE_INPUT_SYSTEM && !ENABLE_LEGACY_INPUT_MANAGER
-        // Input System aktif (tanpa Input Manager)
+  
         if (Mouse.current != null && Mouse.current.leftButton.wasPressedThisFrame)
         {
             clickedThisFrame = true;
@@ -93,7 +99,14 @@ public class TodoManager : MonoBehaviour
     }
 
     // ================== LOGIKA MONOLOG ==================
+    
+    public void StartMonologue()
+{
+    if (sentences == null || sentences.Length == 0) return;
 
+    StopAllCoroutines();
+    StartCoroutine(BeginSceneWithMonologue());
+}
     IEnumerator BeginSceneWithMonologue()
     {
         monologueActive = true;
@@ -104,6 +117,18 @@ public class TodoManager : MonoBehaviour
         yield return StartCoroutine(TypeSentence());
     }
 
+    IEnumerator FadeOutAndLoadScene()
+{
+    if (fadePanel != null)
+        fadePanel.SetActive(true);
+
+    if (fadeAnimator != null)
+        fadeAnimator.Play("FadeOut", -1, 0f); // ⬅️ NAMA ANIMASI
+
+    yield return new WaitForSeconds(fadeDuration);
+
+    SceneManager.LoadScene(targetSceneName);
+}
     void NextSentence()
     {
         dialogueIndex++;
@@ -111,13 +136,14 @@ public class TodoManager : MonoBehaviour
         {
             StartCoroutine(TypeSentence());
         }
-        else
-        {
-            // Monolog selesai, masuk ke transisi terang (Fade In)
-            monologueActive = false;
-            if (monologuePanel != null) monologuePanel.SetActive(false);
-            StartCoroutine(JustFadeIn());
-        }
+       else
+    {
+    monologueActive = false;
+    monologuePanel.SetActive(false);
+
+    // LANGSUNG FADE OUT & PINDAH SCENE
+    StartCoroutine(FadeOutAndLoadScene());
+    }
     }
 
     IEnumerator TypeSentence()
@@ -164,15 +190,22 @@ public class TodoManager : MonoBehaviour
     }
 
     public void CheckGlobalProgress()
+   {
+    bool allDone = true;
+    foreach (var task in allTasks)
     {
-        bool allDone = true;
-        foreach (var task in allTasks)
+        if (task == null || !task.isCompleted)
         {
-            if (task == null || !task.isCompleted) { allDone = false; break; }
+            allDone = false;
+            break;
         }
-
-        if (allDone) { StartCoroutine(EndLevelSequence()); }
     }
+
+    if (allDone)
+    {
+        StartMonologue(); // ⬅️ MONOLOG DI SINI
+    }
+}
 
     IEnumerator EndLevelSequence()
     {

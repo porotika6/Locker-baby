@@ -680,6 +680,116 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1050910259}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &545087239
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1338239682}
+    m_Modifications:
+    - target: {fileID: 2436578237024636985, guid: e03e7538205d2f74abe77f1c0bf852ae, type: 3}
+      propertyPath: m_Name
+      value: MonologuePanel
+      objectReference: {fileID: 0}
+    - target: {fileID: 2471257246608165503, guid: e03e7538205d2f74abe77f1c0bf852ae, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2471257246608165503, guid: e03e7538205d2f74abe77f1c0bf852ae, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2471257246608165503, guid: e03e7538205d2f74abe77f1c0bf852ae, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2471257246608165503, guid: e03e7538205d2f74abe77f1c0bf852ae, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2471257246608165503, guid: e03e7538205d2f74abe77f1c0bf852ae, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2471257246608165503, guid: e03e7538205d2f74abe77f1c0bf852ae, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2471257246608165503, guid: e03e7538205d2f74abe77f1c0bf852ae, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 57.8571
+      objectReference: {fileID: 0}
+    - target: {fileID: 2471257246608165503, guid: e03e7538205d2f74abe77f1c0bf852ae, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 42.1643
+      objectReference: {fileID: 0}
+    - target: {fileID: 2471257246608165503, guid: e03e7538205d2f74abe77f1c0bf852ae, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2471257246608165503, guid: e03e7538205d2f74abe77f1c0bf852ae, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2471257246608165503, guid: e03e7538205d2f74abe77f1c0bf852ae, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2471257246608165503, guid: e03e7538205d2f74abe77f1c0bf852ae, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2471257246608165503, guid: e03e7538205d2f74abe77f1c0bf852ae, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2471257246608165503, guid: e03e7538205d2f74abe77f1c0bf852ae, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2471257246608165503, guid: e03e7538205d2f74abe77f1c0bf852ae, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2471257246608165503, guid: e03e7538205d2f74abe77f1c0bf852ae, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -734.03516
+      objectReference: {fileID: 0}
+    - target: {fileID: 2471257246608165503, guid: e03e7538205d2f74abe77f1c0bf852ae, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -542.1147
+      objectReference: {fileID: 0}
+    - target: {fileID: 2471257246608165503, guid: e03e7538205d2f74abe77f1c0bf852ae, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2471257246608165503, guid: e03e7538205d2f74abe77f1c0bf852ae, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2471257246608165503, guid: e03e7538205d2f74abe77f1c0bf852ae, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6439487743283435067, guid: e03e7538205d2f74abe77f1c0bf852ae, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6439487743283435067, guid: e03e7538205d2f74abe77f1c0bf852ae, type: 3}
+      propertyPath: sentences.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6439487743283435067, guid: e03e7538205d2f74abe77f1c0bf852ae, type: 3}
+      propertyPath: 'sentences.Array.data[2]'
+      value: 'Doing these chores over and over again is the only thing that keep
+        me sane.  '
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e03e7538205d2f74abe77f1c0bf852ae, type: 3}
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -1152,6 +1262,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1050910259}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!224 &1338239682 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 3039167011915147364, guid: 38021e9af018dc049b3373f4e31fb0a9, type: 3}
+  m_PrefabInstance: {fileID: 7552559363069156645}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1359594383
 GameObject:
   m_ObjectHideFlags: 0
@@ -1396,6 +1511,16 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!1 &1698711950 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2436578237024636985, guid: e03e7538205d2f74abe77f1c0bf852ae, type: 3}
+  m_PrefabInstance: {fileID: 545087239}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &1698711951 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 2471257246608165503, guid: e03e7538205d2f74abe77f1c0bf852ae, type: 3}
+  m_PrefabInstance: {fileID: 545087239}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1702838453
 GameObject:
   m_ObjectHideFlags: 0
@@ -1458,6 +1583,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1050910259}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1903963240 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4943960081891442887, guid: e03e7538205d2f74abe77f1c0bf852ae, type: 3}
+  m_PrefabInstance: {fileID: 545087239}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!1 &1934512630
 GameObject:
   m_ObjectHideFlags: 0
@@ -1821,6 +1957,31 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 4907120741964472285, guid: 38021e9af018dc049b3373f4e31fb0a9, type: 3}
+      propertyPath: monologueText
+      value: 
+      objectReference: {fileID: 1903963240}
+    - target: {fileID: 4907120741964472285, guid: 38021e9af018dc049b3373f4e31fb0a9, type: 3}
+      propertyPath: monologuePanel
+      value: 
+      objectReference: {fileID: 1698711950}
+    - target: {fileID: 4907120741964472285, guid: 38021e9af018dc049b3373f4e31fb0a9, type: 3}
+      propertyPath: sentences.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4907120741964472285, guid: 38021e9af018dc049b3373f4e31fb0a9, type: 3}
+      propertyPath: 'sentences.Array.data[0]'
+      value: "I\u2019m a mother "
+      objectReference: {fileID: 0}
+    - target: {fileID: 4907120741964472285, guid: 38021e9af018dc049b3373f4e31fb0a9, type: 3}
+      propertyPath: 'sentences.Array.data[1]'
+      value: 'And now i must wake up to take care of my baby. '
+      objectReference: {fileID: 0}
+    - target: {fileID: 4907120741964472285, guid: 38021e9af018dc049b3373f4e31fb0a9, type: 3}
+      propertyPath: 'sentences.Array.data[2]'
+      value: Doing these chores over and over again is the only thing that keep me
+        sane.
+      objectReference: {fileID: 0}
     - target: {fileID: 5259051104715111314, guid: 38021e9af018dc049b3373f4e31fb0a9, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.35993
@@ -1861,9 +2022,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7269362252512824921, guid: 38021e9af018dc049b3373f4e31fb0a9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 3039167011915147364, guid: 38021e9af018dc049b3373f4e31fb0a9, type: 3}
+      insertIndex: 5
+      addedObject: {fileID: 1698711951}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 38021e9af018dc049b3373f4e31fb0a9, type: 3}
 --- !u!1660057539 &9223372036854775807
