@@ -2,29 +2,35 @@ using System.Collections;
 using UnityEngine;
 using TMPro;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
-public class DialogueController : MonoBehaviour
+public class IntroDialogueManager : MonoBehaviour
 {
     public TextMeshProUGUI dialogueText;
     public string[] sentences;
     public float dialogueSpeed = 0.05f;
+    public string nextSceneName; // Nama scene tujuan setelah monolog
 
     private int index = 0;
     private Coroutine typingCoroutine;
     private Camera cam;
+    private bool isFinished = false;
 
     void Start()
     {
         cam = Camera.main;
+        // Panel monolog biasanya dimulai dalam keadaan aktif 
+        // setelah dipanggil dari Main Menu
         StartDialogue();
     }
 
     void Update()
     {
-        DetectClickOnThisObject();
+        if (!isFinished)
+        {
+            DetectClickOnThisObject();
+        }
     }
-
-    // ================== DIALOG SYSTEM ==================
 
     public void StartDialogue()
     {
@@ -51,8 +57,7 @@ public class DialogueController : MonoBehaviour
         }
         else
         {
-            dialogueText.text = "";
-            Debug.Log("Dialogue finished");
+            EndMonologue();
         }
     }
 
@@ -72,22 +77,25 @@ public class DialogueController : MonoBehaviour
         typingCoroutine = null;
     }
 
-    // ================== CLICK DETECTION ==================
-
     void DetectClickOnThisObject()
     {
         if (!Mouse.current.leftButton.wasPressedThisFrame) return;
 
-        Vector2 mouseWorldPos = cam.ScreenToWorldPoint(
-            Mouse.current.position.ReadValue()
-        );
-
+        // Klik di mana saja pada layar (menggunakan raycast ke objek collider full screen)
+        Vector2 mouseWorldPos = cam.ScreenToWorldPoint(Mouse.current.position.ReadValue());
         RaycastHit2D hit = Physics2D.Raycast(mouseWorldPos, Vector2.zero);
 
-        if (hit.collider != null && hit.collider.gameObject == gameObject)
-        {
-            Debug.Log("Dialogue object clicked");
-            NextSentence();
-        }
+        if (Mouse.current.leftButton.wasPressedThisFrame)
+    {
+        NextSentence();
+    }
+    }
+
+    void EndMonologue()
+    {
+        isFinished = true;
+        dialogueText.text = "";
+        // Langsung pindah ke scene game
+        SceneManager.LoadScene(nextSceneName);
     }
 }

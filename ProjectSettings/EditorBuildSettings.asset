@@ -8,9 +8,24 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Main Menu.unity
     guid: 630a63a3ac18f11438032b53adb01cfe
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Trial Area.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
+  - enabled: 1
+    path: Assets/Scenes/Trial Area 1.unity
+    guid: 13b4fd0e327169f48b4746f284ca8ed4
+  - enabled: 1
+    path: Assets/Scenes/Trial Area 2.unity
+    guid: c75e5ca6ee1929a49b36536b50e3188d
+  - enabled: 1
+    path: Assets/Scenes/Trial Area 3.unity
+    guid: 9c67b65267f05ec4ba2a737eb8092ef1
+  - enabled: 1
+    path: Assets/Scenes/Trial Area 4.unity
+    guid: 43001a2ea3b295443a35cf81d2e02aa9
+  - enabled: 1
+    path: Assets/Scenes/Trial Area 5.unity
+    guid: 47e12b2820b79fd47a39c9c2e8334941
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

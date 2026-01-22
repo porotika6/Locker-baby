@@ -1,0 +1,507 @@
+fileFormatVersion: 2
+guid: 1a8dad00f441aef469ae7b09671b3715
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 4781453139476551583
+    second: Map_placing_mangkok(1)_0
+  - first:
+      213: 6841806102100870156
+    second: Map_placing_mangkok(1)_1
+  - first:
+      213: -3092445710005495506
+    second: Map_placing_mangkok(1)_2
+  - first:
+      213: 2227795648521322318
+    second: Map_placing_mangkok(1)_3
+  - first:
+      213: -4046485633525384180
+    second: Map_placing_mangkok(1)_4
+  - first:
+      213: -9049986152175681185
+    second: Map_placing_mangkok(1)_5
+  - first:
+      213: -2160976332709075581
+    second: Map_placing_mangkok(1)_6
+  - first:
+      213: -2060253986378032692
+    second: Map_placing_mangkok(1)_7
+  - first:
+      213: -2608096393487872004
+    second: Map_placing_mangkok(1)_8
+  - first:
+      213: 8498780359174724450
+    second: Map_placing_mangkok(1)_9
+  - first:
+      213: -734096256499628544
+    second: Map_placing_mangkok(1)_10
+  - first:
+      213: 4152371301783928276
+    second: Map_placing_mangkok(1)_11
+  - first:
+      213: 8443251964544605102
+    second: Map_placing_mangkok(1)_12
+  - first:
+      213: 6061285539041339022
+    second: Map_placing_mangkok(1)_13
+  - first:
+      213: 4690193042802117171
+    second: Map_placing_mangkok(1)_14
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Map_placing_mangkok(1)_0
+      rect:
+        serializedVersion: 2
+        x: 999
+        y: 1656
+        width: 27
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f971da01c422b5240800000000000000
+      internalID: 4781453139476551583
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Map_placing_mangkok(1)_1
+      rect:
+        serializedVersion: 2
+        x: 1033
+        y: 1541
+        width: 310
+        height: 225
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c0482d1866af2fe50800000000000000
+      internalID: 6841806102100870156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Map_placing_mangkok(1)_2
+      rect:
+        serializedVersion: 2
+        x: 1353
+        y: 1656
+        width: 22
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e2911ffd20d6515d0800000000000000
+      internalID: -3092445710005495506
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Map_placing_mangkok(1)_3
+      rect:
+        serializedVersion: 2
+        x: 1358
+        y: 1673
+        width: 20
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e4f3646c658baee10800000000000000
+      internalID: 2227795648521322318
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Map_placing_mangkok(1)_4
+      rect:
+        serializedVersion: 2
+        x: 1367
+        y: 1667
+        width: 10
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c0c7ff861cef7d7c0800000000000000
+      internalID: -4046485633525384180
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Map_placing_mangkok(1)_5
+      rect:
+        serializedVersion: 2
+        x: 1360
+        y: 1635
+        width: 15
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f514d512b8df76280800000000000000
+      internalID: -9049986152175681185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Map_placing_mangkok(1)_6
+      rect:
+        serializedVersion: 2
+        x: 1361
+        y: 1646
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 38569d8897ba202e0800000000000000
+      internalID: -2160976332709075581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Map_placing_mangkok(1)_7
+      rect:
+        serializedVersion: 2
+        x: 1352
+        y: 1628
+        width: 10
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc9dad24ae18863e0800000000000000
+      internalID: -2060253986378032692
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Map_placing_mangkok(1)_8
+      rect:
+        serializedVersion: 2
+        x: 1355
+        y: 1633
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cff8d2ef52e2ecbd0800000000000000
+      internalID: -2608096393487872004
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Map_placing_mangkok(1)_9
+      rect:
+        serializedVersion: 2
+        x: 1339
+        y: 1596
+        width: 22
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 26b1dac45bbb1f570800000000000000
+      internalID: 8498780359174724450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Map_placing_mangkok(1)_10
+      rect:
+        serializedVersion: 2
+        x: 1355
+        y: 1609
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 00645681857ffc5f0800000000000000
+      internalID: -734096256499628544
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Map_placing_mangkok(1)_11
+      rect:
+        serializedVersion: 2
+        x: 1017
+        y: 1570
+        width: 31
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4dd7b52e2bf20a930800000000000000
+      internalID: 4152371301783928276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Map_placing_mangkok(1)_12
+      rect:
+        serializedVersion: 2
+        x: 1069
+        y: 1531
+        width: 20
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eabdccf6de47c2570800000000000000
+      internalID: 8443251964544605102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Map_placing_mangkok(1)_13
+      rect:
+        serializedVersion: 2
+        x: 1084
+        y: 1526
+        width: 11
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e8665cc65130e1450800000000000000
+      internalID: 6061285539041339022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Map_placing_mangkok(1)_14
+      rect:
+        serializedVersion: 2
+        x: 1138
+        y: 1497
+        width: 56
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 33a8a3409b9e61140800000000000000
+      internalID: 4690193042802117171
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Map_placing_mangkok(1)_0: 4781453139476551583
+      Map_placing_mangkok(1)_1: 6841806102100870156
+      Map_placing_mangkok(1)_10: -734096256499628544
+      Map_placing_mangkok(1)_11: 4152371301783928276
+      Map_placing_mangkok(1)_12: 8443251964544605102
+      Map_placing_mangkok(1)_13: 6061285539041339022
+      Map_placing_mangkok(1)_14: 4690193042802117171
+      Map_placing_mangkok(1)_2: -3092445710005495506
+      Map_placing_mangkok(1)_3: 2227795648521322318
+      Map_placing_mangkok(1)_4: -4046485633525384180
+      Map_placing_mangkok(1)_5: -9049986152175681185
+      Map_placing_mangkok(1)_6: -2160976332709075581
+      Map_placing_mangkok(1)_7: -2060253986378032692
+      Map_placing_mangkok(1)_8: -2608096393487872004
+      Map_placing_mangkok(1)_9: 8498780359174724450
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
