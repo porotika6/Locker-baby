@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Events;
 
 public class ItemInteract : MonoBehaviour
 {
@@ -13,9 +14,11 @@ public class ItemInteract : MonoBehaviour
 
     private bool isHovered;
 
-    
     private float lastClickTime;
-    public float doubleClickTime = 0.25f; // 250 ms
+    public float doubleClickTime = 0.25f;
+
+    // 🔥 EVENT (INI KUNCI)
+    public UnityEvent OnDoubleClick;
 
     void Start()
     {
@@ -30,12 +33,9 @@ public class ItemInteract : MonoBehaviour
         DetectDoubleClick();
     }
 
-    // ================= HOVER =================
     void DetectHover()
     {
-        Vector2 mouseScreenPos = Mouse.current.position.ReadValue();
-        Vector2 mouseWorldPos = cam.ScreenToWorldPoint(mouseScreenPos);
-
+        Vector2 mouseWorldPos = cam.ScreenToWorldPoint(Mouse.current.position.ReadValue());
         RaycastHit2D hit = Physics2D.Raycast(mouseWorldPos, Vector2.zero);
 
         if (hit.collider != null && hit.collider.gameObject == gameObject)
@@ -46,30 +46,27 @@ public class ItemInteract : MonoBehaviour
                 sr.color = highlightColor;
             }
         }
-        else
+        else if (isHovered)
         {
-            if (isHovered)
-            {
-                isHovered = false;
-                sr.color = normalColor;
-            }
+            isHovered = false;
+            sr.color = normalColor;
         }
     }
 
-    // ================= DOUBLE CLICK =================
     void DetectDoubleClick()
     {
         if (!isHovered) return;
 
         if (Mouse.current.leftButton.wasPressedThisFrame)
         {
-            float timeSinceLastClick = Time.time - lastClickTime;
-
-            if (timeSinceLastClick <= doubleClickTime)
+            if (Time.time - lastClickTime <= doubleClickTime)
             {
-                Debug.Log("Double Click detected on " + gameObject.name);
                 TeleportCamera();
-                lastClickTime = 0f; // reset (anti triple click)
+
+                // 🔔 KIRIM SINYAL
+                OnDoubleClick?.Invoke();
+
+                lastClickTime = 0f;
             }
             else
             {
@@ -78,7 +75,6 @@ public class ItemInteract : MonoBehaviour
         }
     }
 
-   
     void TeleportCamera()
     {
         if (cameraTarget == null) return;
@@ -88,7 +84,5 @@ public class ItemInteract : MonoBehaviour
             cameraTarget.position.y,
             cam.transform.position.z
         );
-
-        Debug.Log("Camera TP ke: " + cameraTarget.position);
     }
 }
